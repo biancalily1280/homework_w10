@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+  <style>
+    body {
+      background-color: #f5f6f7; /* Set a light background color */
+      margin: 0; /* Remove default margin for body */
+      padding: 0; /* Remove default padding for body */
+      font-family: 'Open Sans', sans-serif; /* Use Google font for text */
+    }
+
+    .page {
+      max-width: 800px; /* Set a maximum width for the page content */
+      margin: 0 auto; /* Center-align the page content horizontally */
+      padding: 20px; /* Add padding for spacing */
+      background-color: #fff; /* Set a white background for the page content */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the page */
+    }
+
+    h1 {
+      font-size: 50px; /* Increase the font size for the title */
+      color: #c320be;
+      font-family: 'Arial Black', sans-serif;
+    }
+
+    h2 {
+      font-size: 24px; /* Increase the font size for section headings */
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    p {
+      font-size: 16px; /* Increase the font size for paragraphs */
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .vis-container {
+      margin-top: 20px; /* Add spacing above the visualizations */
+    }
+
+    
+  </style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- pure grid group: TITLE -->
+  <div class="pure-g">
+    <div class="pure-u-1-1" style="text-align: center;">
+      <h1>Homework Week 10</h1>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="text-box">
+    <div class="pure-u-1-1" style="text-align: center;">
+      <h2>Global Warming</h2>
+      <p>Global temperature anomaly illustrates how temperatures in different regions of the world have deviated from their long-term average.
+        This map helps us visualize the extent of climate change, with the redder areas representing areas experiencing more significant warming.
+      </p>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="pure-g" style="display: grid; place-content: center;">
+    <div class="pure-u-1-1" style="width: 50%;">
+      <div id="vis1" class="vis-container" style="margin-left: 15px;"></div>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="text-box">
+    <div class="pure-u-1-1" style="text-align: center;">
+      <h2>Carbon Dioxide Crisis</h2>
+      <p> When humans burn fossil fuels like coal, oil, and natural gas for energy, they release large amounts of CO2 into the atmosphere. 
+        Reducing CO2 emissions is crucial to mitigating the impacts of climate change and stabilizing the Earth's climate.
+        The chart below shows the various sources of CO2 emissions. <br> <br>
+        Hover to view exact readings and use drop down menu to change region. </p>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+  <!-- pure grid group -->
+  <div class="pure-g">
+
+    <div class="pure-u-1">
+      <div id="vis2" class="vis-container" style="margin-left: 15px;"></div>
+    </div>
+  </div>
+  <!-- end pure grid group -->
+
+  <div class="pure-g">
+    <div class="pure-u-1-1 small-font">
+      <p>This data visualisation was created by <a href="https://github.com/biancalily1280/homework_w10" target="_blank">Bianca
+          Poort</a>. The datasources can be accessed via <a href="https://climate.nasa.gov/vital-signs/ocean-warming/" target=" _blank">NASA</href></a>
+           and <a href=https://ourworldindata.org/emissions-by-fuel target=" _blank">Our World in Data</href>.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var specVis1 = "js/choropleth_map1.vg.json";
+    var specVis2 = "js/interactive_bar.vg.json";
+
+    vegaEmbed('#vis1', specVis1, { "actions": false });
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  </script>
+
+</div>
+
+</body>
+</html>
